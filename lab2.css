@@ -1,0 +1,39 @@
+.alert{
+    width:40%;
+    margin: 0 auto;
+}
+.list{
+    
+    margin:30px;
+    display:flex;
+    flex-direction:column; 
+}
+.text{
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+.horizontal{
+    display: flex;
+}
+#rock{
+    cursor:pointer;
+}
+#paper{
+    cursor:pointer;
+}
+#scissors{
+    cursor:pointer;
+}
+.contains{
+    display: flex;
+    justify-content: space-between;
+}
+.center{
+    position: relative;
+    top:100px;
+}
+.bottom{
+    position:relative;
+    top:380px;
+}
