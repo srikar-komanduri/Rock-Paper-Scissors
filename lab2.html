@@ -1,0 +1,182 @@
+<html>
+	<head>
+		<title>Rock-Paper-Scissors</title>
+		<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<style>
+			.alert{
+				width:40%;
+				margin: 0 auto;
+			}
+			.list{
+				
+				margin:30px;
+				display:flex;
+				flex-direction:column; 
+			}
+			.text{
+				font-size: 20px;
+				font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+				
+			}
+			.horizontal{
+				display: flex;
+			}
+			#rock{
+				cursor:pointer;
+			}
+			#paper{
+				cursor:pointer;
+			}
+			#scissors{
+				cursor:pointer;
+			}
+			.contains{
+				display: flex;
+				justify-content: space-between;
+			}
+			.center{
+				position: relative;
+				top:100px;
+			}
+			.bottom{
+				position:relative;
+				top:380px;
+			}
+			
+		</style>		
+
+	</head>
+
+	<body>
+		<div class="container-fluid p-2 " ><!--container--->
+			<div class="contains" style="border: 2px solid black;"><!--my container--->
+				<div class="list"> <!---list of all user options-->
+					<b class="text">select your option:</b>
+					<div><img src="rps-r-2.JPG"  id="rock"     value="1"  onclick="fun(this)"></div>
+					<div><img src="rps-p.JPG"  id="paper"    value="2"  onclick="fun(this)"></div>
+					<div><img src="rps-s.JPG"  id="scissors" value="3"  onclick="fun(this)"></div>
+					<div class="text"><b>your score:<p id="uscore">0</p> </b></div>
+				</div>
+				
+				<div class="horizontal">	
+						<div class="m-2 center">
+							<img id="yourselection" width=150px>
+						</div>
+
+						<div class="m-2 center">
+							<img  width=180px; id="versus">
+						</div>	
+
+
+						<div class="-2 	center">	
+							<img id="computerselection" width=150px>
+						</div>
+			
+
+				</div>	
+				<div class="list">
+					<div><b class="text">Computer Selection:</b></div>
+
+					<div class="text bottom"><b>Computer score:<p id="cscore">0</p> </b></div>
+				</div>	
+
+
+
+				
+
+			</div>	
+
+
+		</div>
+
+		<div style="text-align: center;">
+			<b id="result"></b>
+		</div>
+		
+
+		<script>
+			var cs=0;
+			var us=0;
+			function fun(x){
+				
+				
+				var srclist=["rps-r.JPG","rps-p.JPG","rps-s.JPG"]
+				var ind=Math.floor((Math.random() * 3));
+				var user=x.getAttribute('value');
+				document.getElementById("yourselection").src=x.src;
+				document.getElementById("versus").src="https://i.ya-webdesign.com/images/vs-png-5.png";
+				document.getElementById("computerselection").src=srclist[ind];
+				
+				cmp=ind+1;
+
+				
+				if(user==cmp)	
+					document.getElementById("result").innerHTML="Draw";
+				
+
+			
+				else if(user==1){
+					if(cmp==2){
+						cs+=1;
+						document.getElementById("result").innerHTML="Computer wins";
+
+					}
+					
+					else{
+						document.getElementById("result").innerHTML="You win";
+						us+=1;
+					}
+					
+				}
+
+				else if(user==2){
+					if(cmp==1){
+						document.getElementById("result").innerHTML="You win";
+						us+=1;
+					}
+					else{
+						cs+=1;
+						document.getElementById("result").innerHTML="Computer wins";
+					}
+
+
+
+				}
+			
+				else{
+					if(cmp==1){
+						cs+=1;
+						document.getElementById("result").innerHTML="Computer wins";
+					}
+
+					else{
+						document.getElementById("result").innerHTML="You win";
+						us+=1;
+
+					}
+				}
+
+				document.getElementById("uscore").innerHTML=us;
+				document.getElementById("cscore").innerHTML=cs;
+
+
+
+
+
+			}
+
+		</script>
+	</body>
+
+
+
+
+
+
+
+</html>
